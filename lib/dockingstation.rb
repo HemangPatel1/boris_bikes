@@ -1,8 +1,9 @@
 class DockingStation
 	DEFAULT_CAPACITY = 20
 
+
 	def initialize(options = {})
-		@capacity = options.fetch(:capacity) || DEFAULT_CAPACITY
+		@capacity = options.fetch(:capacity, DEFAULT_CAPACITY)
 		@bikes = []
 	end
 
@@ -40,7 +41,7 @@ class DockingStation
 		@bikes.delete_if {|bike| bike.broken?}
 	end
 
-	def release_available_bikes
+	def release_available_bike
 		@bikes.delete_if {|bike| !bike.broken?}
 	end
 	
